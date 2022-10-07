@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content%}
+<a href="#">글쓰기</a>
+
+{% for review in reviews %}
+{{ review.title }}
+{{ review.content }}
+{{ review.movie_name }}
+{{ review.grade }}
+{{ review.created_at }}
+{{ review.updated_at }}
+<a href="{% url 'movies:detail' review.id %}">내용보기</a>
+{% endfor %}
+
+{% endblock content%}
