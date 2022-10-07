@@ -1,47 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block title %}게시글 작성하기{% endblock title %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+
 {% block content %}
-<form action="" method="POST">
+<div class="container mt-5">
+<form method="post" class="form">
     {% csrf_token %}
-
-    <!-- <div class="mb-3">
-        <h1>{{ review_form.title }}</h1>
-        <h1>{{ review_form.content }}</h1>
-        <h1>{{ review_form.movie_name }}</h1>
-        <h1>{{ review_form.grade }}</h1>
-    </div> -->
-
-    <!-- {{ review_form.as_p }} -->
-
-    <input type="submit" value="글 쓰기">
-</form>
-
-<div class="container my-5">
-<form>
-    <div class="d-flex justify-content-between">
-    <div class="">
-        <label class="form-label fs-1">영화 제목</label>
-    </div>
-
-    </div>
-    <p class="fs-3">{{ review_form.movie_name }}</p>
-
-    <hr class="mt-5 mb-4">
-
-    <div class="mb-3">
-    <label class="form-label fs-1">리뷰 내용</label>
-    <h1 class="form-control">
-        <p style="font-weight: bold; margin: 0;">
-            {{ review_form.title }}<br> 
-        </p>
-        {{ review_form.content }}
-    </h1>
-    </div>
-</form>
-
-<!-- <div class="my-4 d-flex justify-content-end">
-    <button class="btn btn-outline-success button-link mx-1"><a href="{% url 'movies:update' review.pk %}" style="text-decoration:none; color:black;">수정</a></button>
-    <button class="btn btn-outline-danger button-link mx-1"><a href="{% url 'movies:delete' review.pk %}" style="text-decoration:none; color:black;">삭제</a></button>
-    <button class="btn btn-outline-secondary button-link mx-1"><a href="{% url 'movies:index' %}" style="text-decoration:none; color:black;">목록 페이지로</a></button>
-</div> -->
+  
+    {% bootstrap_form review_form %}
+    <div style="display: flex; justify-content: end; ">
+        {% bootstrap_button button_type="submit" content="OK" button_class="btn-outline-dark" %}
+        <div style="padding-left:1rem;">
+            {% bootstrap_button button_type="reset" content="Cancel" button_class="btn-outline-dark"%}
+        </div>
+    </div>    
+  </form>
 </div>
 {% endblock content %}

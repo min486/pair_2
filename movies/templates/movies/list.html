@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}모든 리뷰 보기{% endblock title %}
+
 {% block content %}
+
+{% for review in reviews %}
 <div class="card">
-  
   <h5 class="card-header">{{ review.movie_name }}</h5>
   {{ review.created_at }}
   <div class="card-body">
@@ -12,7 +15,8 @@
     {{ review.grade }}
     <p class="card-text">{{ review.content|slice:":50"}}</p>
     <a href="{% url 'movies:detail' review.id %}" class="btn btn-outline-success">내용 더보기</a>
-    
   </div>
 </div>
+{% endfor %}
+
 {% endblock content %}
