@@ -10,7 +10,7 @@ urlpatterns = [
     # 생성    
     path('create/', views.create, name='create'),
     # 수정
-    # path('<int:pk>/update/', views.update, name='update'),
+    path('<int:pk>/update/', views.update, name='update'),
     # 삭제
-    # path('<int:pk>/delete/', views.delete, name='delete'),
+    path('<int:pk>/delete/', views.delete, name='delete'),
 ]

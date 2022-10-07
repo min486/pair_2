@@ -8,4 +8,10 @@
 {{ review.created_at }}
 {{ review.updated_at }}
 
+<div>
+  <a href="{% url 'movies:update' review.pk %}">수정</a>
+  <a href="{% url 'movies:delete' review.pk %}">삭제</a>
+  <a href="{% url 'movies:index' %}">목록 페이지로</a>
+</div>
+  
 {% endblock content %}
