@@ -8,7 +8,7 @@ urlpatterns = [
     # 조회
     path('<int:pk>/', views.detail, name='detail'),
     # 생성    
-    # path('create/', views.create, name='create'),
+    path('create/', views.create, name='create'),
     # 수정
     # path('<int:pk>/update/', views.update, name='update'),
     # 삭제

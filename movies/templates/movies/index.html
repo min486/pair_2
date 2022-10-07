@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content%}
-<a href="#">글쓰기</a>
+<a href="{% url 'movies:create' %}">글쓰기</a>
 
 {% for review in reviews %}
 {{ review.title }}
