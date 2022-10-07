@@ -1,8 +1,6 @@
 ## pair-programming
 
-
-
-![ezgif.com-gif-maker (1)](README.assets/ezgif.com-gif-maker (1).gif)
+![ezgif.com-gif-maker (1)](README.assets/ezgif.com-gif-maker (1)-16651318143632.gif)
 
 - 1:2로 driver, navigator로 나뉘어 영화 리뷰 사이트 제작
 - 셋마다 상징하는 이미지(러버덕, 덤블도어, 푸린)을 활용하여 네브바와 푸터 등을 꾸밈
