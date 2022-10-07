@@ -13,16 +13,16 @@
 
 <div style="display:flex; justify-content: center; align-items:center; flex-direction:column;">
 <div class='title' style="display:flex; justify-content: center;">
-<h2> 최근 리뷰보기 </h2>
+<h2 style="background-color:rgb(255, 255, 202);">&nbsp 최근 리뷰보기 &nbsp</h2>
 </div>
 <div class="d-flex" style="justify-content:center; flex-wrap:wrap;">
 {% for review in reviews %}
 <div class="card">
-  <h5 class="card-header">{{review.movie_name}}</h5>
+  <h5 class="card-header" style="font-weight:bold;">영화제목 [{{review.movie_name}}]</h5>
   <div class="card-body">
     <h5 class="card-title">{{review.title}}</h5>
     <p class="card-text">{{review.content}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="{% url 'movies:detail' review.pk %}" class="btn btn-outline-dark">더보기</a>
   </div>
 </div>
 

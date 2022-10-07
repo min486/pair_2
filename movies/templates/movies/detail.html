@@ -1,17 +1,32 @@
 {% extends 'base.html' %}
 
-{% block content %}
-{{review.title}}
-{{review.content}}
-{{review.movie_name}}
-{{review.grade}}
-{{ review.created_at }}
-{{ review.updated_at }}
+{% load static %}
 
-<div>
-  <a href="{% url 'movies:update' review.pk %}">수정</a>
-  <a href="{% url 'movies:delete' review.pk %}">삭제</a>
-  <a href="{% url 'movies:index' %}">목록 페이지로</a>
+{% block content %}
+<div clas="container" style="display:flex; flex-direction:column; padding:3rem;">
+  <div>
+    <h1>영화 제목 : {{review.movie_name}}</h1>
+  </div>
+  <div>
+    <h3 style="margin:0;">생성 날짜 : {{review.created_at }} | 수정 날짜 : {{ review.updated_at }}</h3>
+  </div>
+  <div>
+    <h3>별점 : {{review.grade}}</h3>
+  </div>
+  <hr>
+  <div>
+    <h3>리뷰 제목 : {{review.title}}</h3>
+  </div>
+  <div>
+    <h3>리뷰 내용 : {{review.content}}</h3>
+  </div>
+
+
+
+  <div>
+    <button class="btn btn-outline-success button-link"><a href="{% url 'movies:update' review.pk %}" style="text-decoration:none; color:black;">수정</a></button>
+    <button class="btn btn-outline-danger button-link"><a href="{% url 'movies:delete' review.pk %}" style="text-decoration:none; color:black;">삭제</a></button>
+    <button class="btn btn-outline-secondary button-link"><a href="{% url 'movies:index' %}" style="text-decoration:none; color:black;">목록 페이지로</a></button>
+  </div>
 </div>
-  
 {% endblock content %}
