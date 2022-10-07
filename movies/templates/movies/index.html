@@ -1,15 +1,33 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'movies/css/index.css' %}">
+{% endblock css %}
+
+
 {% block content%}
-<a href="{% url 'movies:create' %}">글쓰기</a>
+<div>
+  <img src="{% static 'movies/images/review.png' %}" class="w-100">
+</div>
 
+<div style="display:flex; justify-content: center; align-items:center; flex-direction:column;">
+<div class='title' style="display:flex; justify-content: center;">
+<h2> 최근 리뷰보기 </h2>
+</div>
+<div class="d-flex" style="justify-content:center; flex-wrap:wrap;">
 {% for review in reviews %}
-{{ review.title }}
-{{ review.content }}
-{{ review.movie_name }}
-{{ review.grade }}
-{{ review.created_at }}
-{{ review.updated_at }}
-<a href="{% url 'movies:detail' review.id %}">내용보기</a>
-{% endfor %}
+<div class="card">
+  <h5 class="card-header">{{review.movie_name}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{review.title}}</h5>
+    <p class="card-text">{{review.content}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 
+{% endfor %}
+</div>
 {% endblock content%}
+
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+  
+  <h5 class="card-header">{{ review.movie_name }}</h5>
+  {{ review.created_at }}
+  <div class="card-body">
+    {{ review.updated_at }}
+    <h5 class="card-title">{{ review.title }}</h5>
+    
+    {{ review.grade }}
+    <p class="card-text">{{ review.content|slice:":50"}}</p>
+    <a href="{% url 'movies:detail' review.id %}" class="btn btn-outline-success">내용 더보기</a>
+    
+  </div>
+</div>
+{% endblock content %}

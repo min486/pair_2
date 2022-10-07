@@ -3,11 +3,13 @@ from .models import Review
 from .forms import ReviewForm
 # Create your views here.
 
-
 def index(request):
-    reviews = Review.objects.all()
-    
+    reviews = Review.objects.order_by('-created_at')[:6]
     return render(request, 'movies/index.html', {"reviews":reviews})
+
+def list(request):
+    reviews = Review.objects.all()
+    return render(request, 'movies/list.html', {"reviews":reviews})
 
 def detail(request, pk):
     review = Review.objects.get(pk=pk)
