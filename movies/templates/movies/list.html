@@ -1,22 +1,32 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}모든 리뷰 보기{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'movies/css/index.css' %}">
+{% endblock css %}
 
 {% block content %}
 
-{% for review in reviews %}
-<div class="card">
-  <h5 class="card-header">{{ review.movie_name }}</h5>
-  {{ review.created_at }}
-  <div class="card-body">
-    {{ review.updated_at }}
-    <h5 class="card-title">{{ review.title }}</h5>
-    
-    {{ review.grade }}
-    <p class="card-text">{{ review.content|slice:":50"}}</p>
-    <a href="{% url 'movies:detail' review.id %}" class="btn btn-outline-success">내용 더보기</a>
+<div style="display:flex; justify-content: center; align-items:center; flex-direction:column;">
+  <div class='title' style="display:flex; justify-content: center;">
+  <h2 style="background-color:rgb(255, 255, 202);">&nbsp 모든 리뷰보기 &nbsp</h2>
   </div>
-</div>
-{% endfor %}
+  <div class="d-flex" style="justify-content:center; flex-wrap:wrap;">
+  {% for review in reviews %}
+  <div class="card" style="box-shadow:5px 5px 10px 5px rgba(211, 211, 211, 0.553)">
+    <h5 class="card-header" style="font-weight:bold; background-color: rgba(2, 2, 2, 0.848); color:white">영화제목 [{{review.movie_name}}]</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{review.title}}</h5>
+      <p class="card-text">{{review.content}}</p>
+      <div style="display:flex; justify-content:end">
+      <a href="{% url 'movies:detail' review.pk %}" class="btn btn-outline-dark">더보기</a>
+      </div>
+    </div>
+  </div>
+  
+  {% endfor %}
 
 {% endblock content %}
